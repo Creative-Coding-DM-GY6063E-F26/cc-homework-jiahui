@@ -17,24 +17,16 @@ function draw() {
 
 
   if (bDoExportSvg){
-    beginRecordSvg("effect2.svg");
+    beginRecordSvg("top.svg");
   }
 
- // line(0, 0, mouseX, mouseY);
-noFill();
-stroke(0);
- for(let i=0; i<width; i+=8) {
-  for(let j=0; j<height; j+=8) {
-    line(i, j, i+8, j+8);
-  }
+ 
+ stroke(0);
+  strokeWeight(3);
+  for (let x = 20; x < 800; x += 8) {
+   line(x, 20, x, 1000);
  }
 
- translate(-10, 10);
- for(let i=0; i<width; i+=10) {
-  for(let j=0; j<height; j+=10) {
-    line(i, j, i+10, j+8);
-  }
- }
 
   if (bDoExportSvg){
     endRecordSvg();

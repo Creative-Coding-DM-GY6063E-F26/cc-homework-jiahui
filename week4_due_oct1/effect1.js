@@ -1,3 +1,6 @@
+
+let numCircles = 10;
+
 p5.disableFriendlyErrors = true; // keep warnings quiet
 let bDoExportSvg = false; 
 
@@ -40,4 +43,20 @@ stroke(0);
     endRecordSvg();
     bDoExportSvg = false;
   }
+
+  // call drawCircles here
+  drawcircles();
+  drawlines( xOff );
+
+if (bDoExportSvg){
+    endRecordSvg();
+    bDoExportSvg = false;
+  }
 }
+// draw 3 circles
+  function drawcircles(num){
+    for(let i=0; i<= num; i++) {
+      nofill();
+      circle(width/2, height/2, i * 150);
+    }
+  }

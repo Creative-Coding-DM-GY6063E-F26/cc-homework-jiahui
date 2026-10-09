@@ -23,6 +23,7 @@ function draw() {
  // line(0, 0, mouseX, mouseY);
 noFill();
 stroke(0);
+
  for(let i=0; i<width; i+=8) {
 
     beginShape();
