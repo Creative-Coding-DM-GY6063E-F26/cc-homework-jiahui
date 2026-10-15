@@ -1,4 +1,4 @@
-p5.disableFriendlyErrors = true; // keep warnings quiet
+p5.disableFriendlyErrors = true; 
 let bDoExportSvg = false; 
 
 function setup() {

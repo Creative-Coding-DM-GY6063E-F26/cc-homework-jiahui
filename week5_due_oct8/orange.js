@@ -65,42 +65,23 @@ function drawCurvesTransformed(angle, mirror) {
 }
 
 
-// =====================================
-// 把原来的 translate / scale / rotate
-// 直接计算到坐标里面
-// =====================================
 
 function transformPoint(x, y, angle, mirror) {
-
-  // 原来的：
-  // translate(-150, -350)
 
   x = x - 150;
   y = y - 350;
 
 
-  // 原来的镜像：
-  //
-  // translate(800, 0);
-  // scale(-1, 1);
-  //
-  // 等价于：
-  // x = 800 - x
 
   if (mirror) {
     x = 800 - x;
   }
 
 
-  // 原来的：
-  // scale(0.55)
-
   x = x * 0.3;
   y = y * 0.3;
 
 
-  // 原来的：
-  // rotate(angle)
 
   let rotatedX =
     x * cos(angle) -
@@ -110,9 +91,6 @@ function transformPoint(x, y, angle, mirror) {
     x * sin(angle) +
     y * cos(angle);
 
-
-  // 原来的：
-  // translate(width / 2, height / 2)
 
   rotatedX = rotatedX + width / 2;
   rotatedY = rotatedY + height / 2;
