@@ -4,8 +4,6 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   // create mapper object
   pMapper = createProjectionMapper(this);
-  // create quad map
-  quadMap = pMapper.createQuadMap(400,400);
   // loads calibration in the "maps" directory
   pMapper.load("maps/map.json");
 
@@ -14,10 +12,10 @@ function setup() {
 function draw() {
   background(0);
 
-  for(let _map in pMapper.surfaces){
+  pMapper.surfaces.forEach((surface, i) => {
     // displaySketch only passes pg to its callback, so wrap it to pass the index too
-    pMapper.surfaces[_map].displaySketch((pg) => drawCoords(pg, _map));
-  }
+    surface.displaySketch((pg) => drawCoords(pg, i));
+  });
 }
 
 function keyPressed() {
@@ -53,8 +51,7 @@ function drawCoords(pg, mapIndex) {
     color(255, 0, 255),
     color(0, 255, 255)
   ];
-  // mapIndex comes from a for...in loop, so it's a string like "0" — convert it to a number
-  let bgColor = colors[int(mapIndex) % colors.length];
+  let bgColor = colors[mapIndex % colors.length];
   pg.background(bgColor);
   pg.fill(0);
 
