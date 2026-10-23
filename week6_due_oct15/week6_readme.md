@@ -24,3 +24,15 @@ Or you can switch to the normal mode, seeing the real-time effect.
 The complete effect
 
 ![using mouse](image/3.png)
+# Week 6
+
+**Date:** Oct 8
+
+## Topic
+Animating Sprites
+
+## Content
+functions
+
+## Assignment
+Assignment 6: Animated Clock (Due Oct 15)
