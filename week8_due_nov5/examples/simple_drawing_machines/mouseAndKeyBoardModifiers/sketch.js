@@ -8,15 +8,22 @@
  *   spacebar - clear the canvas
  *
  */
-let sizes = [0.02, 0.0625, 0.12]; // diameters as a fraction of canvas width
-let sizeIndex = 1;
+let sizes1 = [0.02, 0.0625, 0.12]; // diameters as a fraction of canvas width
+let sizeIndex1 = 1;
 
-let colors = ['peachpuff', 'tomato', 'mediumseagreen', 'steelblue'];
+let sizes2 = [100, 200, 500];
+let sizeIndex2 = 0
+
+let colors = ['black', 'orange', 'mediumseagreen', 'steelblue'];
 let colorIndex = 0;
 
 let useNoise = false;
-let noiseAmount = 100; // max distance (in pixels) noise can push a circle
+let noiseAmount = 500; // max distance (in pixels) noise can push a circle
 let noiseTime = 0;
+
+let shapes = ["circle", "rectangle"]
+let shapeIndex = 0
+
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -31,6 +38,16 @@ function draw() {
     let x = mouseX;
     let y = mouseY;
 
+if (shapeIndex === 0){
+  circle(x, y, width * sizes1[sizeIndex1]);
+}
+
+
+if (shapeIndex === 1){
+  rectMode(CENTER)
+  rect(mouseX, mouseY, sizes2[sizeIndex2], sizes2[sizeIndex2])
+}
+
     if (useNoise) {
       // noise() returns 0-1, so map it to -noiseAmount..noiseAmount
       x += map(noise(noiseTime), 0, 1, -noiseAmount, noiseAmount);
@@ -38,7 +55,6 @@ function draw() {
       noiseTime += 0.05;
     }
 
-    circle(x, y, width * sizes[sizeIndex]);
   }
 }
 
@@ -48,7 +64,11 @@ function keyPressed() {
   }
 
   if (key === 'j') {
-    sizeIndex = (sizeIndex + 1) % sizes.length; // wrap back to 0 at the end
+    sizeIndex1 = (sizeIndex1 + 1) % sizes1.length; // wrap back to 0 at the end
+  }
+
+ if (key === 't') {
+    sizeIndex2 = (sizeIndex2 + 1) % sizes2.length; // wrap back to 0 at the end
   }
 
   if (key === 'k') {
@@ -58,6 +78,12 @@ function keyPressed() {
   if (key === 'l') {
     useNoise = !useNoise;
   }
+ 
+  if (key === "s"){
+ shapeIndex = (shapeIndex + 1) % shapes.length;
+  }
+
+
 }
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

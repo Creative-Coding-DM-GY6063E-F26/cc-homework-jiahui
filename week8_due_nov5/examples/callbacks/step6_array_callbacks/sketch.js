@@ -39,10 +39,10 @@ function drawBubble(b) {
 function mousePressed() {
   for (let i = 0; i < 10; i++) {
     bubbles.push({
-      x: mouseX + random(-30, 30),
-      y: mouseY + random(-30, 30),
+      x: mouseX + random(-50, 50),
+      y: mouseY + random(-50, 50),
       size: random(10, 40),
-      speed: random(1, 4),
+      speed: random(1, 5),
     });
   }
 }

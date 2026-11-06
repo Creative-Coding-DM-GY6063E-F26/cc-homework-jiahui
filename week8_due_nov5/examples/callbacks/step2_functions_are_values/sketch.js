@@ -28,6 +28,18 @@ function draw() {
   currentShape(width / 2, height / 2, 200);
 }
 
+//function drawTriangle(x, y, size){
+ // triangle(x, y-size/2,
+   // x-size/2, y+size/2,
+    // x+size/2, y+size/2);
+//}
+
+beginShape();
+for (let i = 0; i<3; i++) {
+  
+}
+
+
 function drawCircle(x, y, size) {
   circle(x, y, size);
 }
@@ -44,6 +56,11 @@ function keyPressed() {
   if (key === '2') {
     currentShape = drawSquare;
   }
+if (key === '3') {
+    currentShape = drawTriangle;
+  }
+
+
 }
 
 // Try it: add a drawTriangle(x, y, size) function and switch to it with '3'.

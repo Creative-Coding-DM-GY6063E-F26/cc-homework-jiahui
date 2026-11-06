@@ -8,7 +8,7 @@ async function setup() {
   console.log("ml5 version:", ml5.version);
   vid = createCapture(VIDEO); 
   vid.size(320, 240);
-  vid.hide();
+  //vid.hide();
   background(220);
   handPose = await ml5.handPose();
   handPose.detectStart(vid, gotHands);
@@ -16,7 +16,7 @@ async function setup() {
 
 
 function draw() {
-  background(220);
+ // background(220);
 }
 
 
@@ -37,6 +37,18 @@ function printFingerDataKey(){
     // e.g. "keypoints", "handedness", "score", "index_finger_tip", ...
     for (let key of Object.keys(hand)) {
       console.log(index, key);
+
+if(key.includes("index_finger")){
+  let finger = hand[key];
+  console.log(finger.x, finger.y);
+
+  let mappedX = map(finger.x, 0, vid.width, width, 0);
+  let mappedY = map(finger.y, 0, vid.height, 0, height);
+  circle(mappedX, mappedY, 20);
+}
+
+
+
     }
   });
 }

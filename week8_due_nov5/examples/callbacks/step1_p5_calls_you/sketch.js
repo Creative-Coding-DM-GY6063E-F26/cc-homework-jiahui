@@ -29,9 +29,11 @@ function draw() {
 }
 
 // p5 calls this every time the mouse button goes down
-function mousePressed() {
+function mouseClicked() {
   clicks++;
 }
+
+
 
 // Try it: rename mousePressed to mouseClicked, or to mousepressed (lowercase).
 // What happens? p5 only calls the names it knows about.
