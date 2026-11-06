@@ -1,6 +1,6 @@
 
 // Because I mirrored the image,
-// so right and left of your hands should be opposite in real
+// so right and left of your hands should be reversed in real world
 //For people who understand Chinese, it can also be a word puzzle
 
 let video;
